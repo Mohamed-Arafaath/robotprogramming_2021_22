@@ -74,5 +74,42 @@ endif()
 
 Here the FLAG `FATAL_ERROR` will exit the compilation! Please refer to the [docs](https://cmake.org/cmake/help/latest/command/message.html) for more info and flags! 
 
- 
 ### Now you are ready to write your (first maybe) nested CMakeLists :)
+
+## Exercise - building and running
+
+Once you have completed the exercise, open a terminal and in the root folder of your project `<YOUR_PATH>/mini_core/`, where you have the following file and folders:
+```
+executables
+src
+CMakeLists.txt
+```
+create a folder called `build` and go into it, so type in the terminal:
+```
+mkdir build && cd build
+```
+after you can configure your project and create your `Makefile` necessary to build your package. This is done using `cmake`. The `cmake` executable is the CMake command-line interface. It may be used to configure projects in scripts. Project configuration settings may be specified on the command line with the -D option (for more info check [this out](https://cmake.org/cmake/help/v3.2/manual/cmake.1.html)).
+
+CMake is a cross-platform build system generator. Projects specify their build process with platform-independent CMake listfiles included in each directory of a source tree with the name CMakeLists.txt. Users build a project by using CMake to generate a build system for a native tool on their platform.
+
+Now that you know a little of `cmake` you are ready to build your package, always in the same terminal (make sure you are inside the `build` folder) type:
+```
+make
+```
+by default this will build with just a single core. Since your machine usually has more, you can speed up the compilation by typing the number of core you want to use for compilation (check this out by typing in a terminal `nproc`), for instance:
+```
+make -j4
+```
+Once you build and no error message are popped out you can finally run your executable. This will be placed inside `<YOUR_PATH>/mini_core/build/executables/`. Therefore go inside the following folder by typing:
+```
+cd <YOUR_PATH>/mini_core/build/executables/
+```
+And run the only executable that you have in the folder (check the name out using the `ls` command, the executable will be highlighted in green for you :))
+
+In my case the name is `many_object_in_stack_example`, therefore you can run this by typing:
+```
+./many_object_in_stack_example
+```
+You should see a stupid ASCII-Art and not error or `Segmentation Fault` appearing in the terminal. If this is the case, you have completed the homework successfully and you know now how to build a C++ package.
+
+ 
