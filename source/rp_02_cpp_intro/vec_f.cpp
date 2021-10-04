@@ -5,24 +5,24 @@ struct VecF {
   void  set(int i,float f) {v[i]=f;}
   VecF() { size=0; v=nullptr;}
   VecF(int size){
-   this->size=size; 
-   v=new float[size];
- }
- VecF(const VecF& other) {
-  if (size) delete[] v; size=0; v=0;
-  if (! other.size) return;
-  size=other.size; v=new float[size];
-  for (int i=0; i<size; ++i)
-    v[i]=other.v[i];
+    this->size=size; 
+    v=new float[size];
+  }
+
+  VecF(const VecF& other) {
+    if (! other.size) return;
+    size=other.size; v=new float[size];
+    for (int i=0; i<size; ++i)
+      v[i]=other.v[i];
   }
   ~VecF() {if (size) delete [] v;}
 
   VecF& operator =(const VecF& other) {
-   if (size) delete[] v; size=0; v=0;
-   if (! other.size) return *this;
-   size=other.size; v=new float[size];
-   for (int i=0; i<size; ++i) v[i]=other.v[i];
- }
+    if (size) delete[] v; size=0; v=0;
+    if (! other.size) return *this;
+    size=other.size; v=new float[size];
+    for (int i=0; i<size; ++i) v[i]=other.v[i];
+  }
 };
 
 int main() {
